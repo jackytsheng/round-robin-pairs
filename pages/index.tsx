@@ -37,7 +37,7 @@ const Home: NextPage = () => {
           <h1 className='text-6xl font-bold'>
             Round Robin {''}
             <a
-              className='text-blue-400'
+              className='text-blue-400 rounded-lg focus:ring-4 focus:outline-none dark:focus:ring-blue-100 '
               href='https://en.wikipedia.org/wiki/Round-robin_tournament'
             >
               Pairs
