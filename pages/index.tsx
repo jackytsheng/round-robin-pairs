@@ -7,6 +7,8 @@ import Round from '../components/Round';
 import Textarea from '../components/Textarea';
 import Input from '../components/Input';
 import { useEffect, useState } from 'react';
+import Button from '../components/Button';
+import { Icon } from '../components/Svg';
 
 const Home: NextPage = () => {
   let names = ['Jacky', 'Bec', 'Ben', 'Nirvana', 'Gowri'];
@@ -43,7 +45,7 @@ const Home: NextPage = () => {
           </h1>
         </header>
 
-        <div className='grid grid-cols-[minmax(0px,_1fr)_250px] w-full auto-rows-auto'>
+        <div className='grid grid-cols-[minmax(0px,_1fr)_280px] w-full auto-rows-auto'>
           <div className='flex flex-wrap justify-center gap-5 mx-8'>
             {round.map((_, index) => (
               <Round
@@ -59,6 +61,10 @@ const Home: NextPage = () => {
           <section className='gap-4 flex flex-col'>
             <Input />
             <Textarea />
+            <div className='flex mt-2 gap-4 justify-between'>
+              <Button icon={Icon.LeftChervon} text={'Generate'} />
+              <Button icon={Icon.Download} text={'Download as CSV'} />
+            </div>
           </section>
           <div className='mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full'>
             <a
