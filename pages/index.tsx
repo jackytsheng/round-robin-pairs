@@ -9,12 +9,29 @@ import Input from '../components/Input';
 import { useEffect, useState } from 'react';
 import Button from '../components/Button';
 import { Icon } from '../components/Svg';
+import generateRoundRobinPair, {
+  WAIT,
+} from '../algorithms/generateRoundRobinPair';
 
 const Home: NextPage = () => {
-  let names = ['Jacky', 'Bec', 'Ben', 'Nirvana', 'Gowri'];
-  let title = 'Round';
-  let round = Array(5).fill(0);
+  const initialNames = ['Jacky', 'Bec', 'Ben', 'Nirvana', 'Gowri'];
+  const initialRounds = generateRoundRobinPair(initialNames).map((r) =>
+    r.filter((name) => name !== WAIT)
+  );
+  console.log(initialRounds);
+  const [roundTitle, setRoundTitle] = useState('Round');
+  const [names, setNames] = useState(initialNames);
+  const [rounds, setRounds] = useState(initialRounds);
   const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const generate = () => {
+    const rounds = generateRoundRobinPair(names).map((r) =>
+      r.filter((name) => name !== WAIT)
+    );
+    setRounds(rounds);
+  };
+
+  const filterOutWait = () => initialRounds;
 
   useEffect(() => {
     if (isDarkMode) {
@@ -23,6 +40,7 @@ const Home: NextPage = () => {
       document.getElementById('__next')?.classList.remove('dark');
     }
   }, [isDarkMode]);
+
   return (
     <div className='flex min-h-screen flex-col items-center justify-center py-2 text-gray-600 dark:text-white dark:bg-gray-900'>
       <Head>
@@ -46,23 +64,27 @@ const Home: NextPage = () => {
         </header>
 
         <div className='grid grid-cols-[minmax(0px,_1fr)_280px] w-full auto-rows-auto'>
-          <div className='flex flex-wrap justify-center gap-5 mx-8'>
-            {round.map((_, index) => (
+          <div className='flex flex-wrap justify-center gap-5 mx-8 items-start'>
+            {rounds.map((eachRoundNames, index) => (
               <Round
-                key={title + index}
-                title={title}
+                key={roundTitle + index}
+                title={roundTitle}
                 number={index + 1}
-                Chips={names.map((name, index) => (
+                Chips={eachRoundNames.map((name, index) => (
                   <Chip key={name + index} name={name} />
                 ))}
               />
             ))}
           </div>
           <section className='gap-4 flex flex-col'>
-            <Input />
-            <Textarea />
+            <Input setValue={setRoundTitle} />
+            <Textarea setValues={setNames} />
             <div className='flex mt-2 gap-4 justify-between'>
-              <Button icon={Icon.LeftChervon} text={'Generate'} />
+              <Button
+                icon={Icon.LeftChervon}
+                text={'Generate'}
+                onClick={generate}
+              />
               <Button icon={Icon.Download} text={'Download as CSV'} />
             </div>
           </section>
