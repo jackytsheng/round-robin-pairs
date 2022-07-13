@@ -12,7 +12,7 @@ const Input = ({ defaultValue, setValue }: InputProps) => {
         htmlFor='title'
         className='block mb-2 text-sm font-medium dark:text-gray-400'
       >
-        Enter Pair Title
+        Enter Title for Pairs
       </label>
       <input
         id='title'

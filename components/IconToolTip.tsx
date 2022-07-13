@@ -24,9 +24,9 @@ const IconToolTip = ({ children }: any) => {
           role='tooltip'
           className='z-20 italic text-xs mt-2 dark:text-gray-200 text-gray-400 absolute backdrop-blur-sm bg-white/10 w-64 transition duration-150 ease-in-out left-[-7.5rem] shadow-lg p-4 rounded-lg'
         >
-          <p>- Names are separated by line.</p>
-          <p>- Trailing and leading spaces are trimmed.</p>
-          <p>- Empty lines are skipped.</p>
+          <p>- Names are separated by line</p>
+          <p>- Trailing and leading spaces are trimmed</p>
+          <p>- Empty lines are skipped</p>
         </div>
       )}
     </div>
