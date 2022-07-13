@@ -70,12 +70,13 @@ const Home: NextPage = () => {
       <Head>
         <title>Create Next App</title>
         <link rel='icon' href='/favicon.ico' />
+        <script src='flowbite/dist/flowbite.js'></script>
       </Head>
 
       <Nav onToggle={setIsDarkMode} isChecked={isDarkMode} />
 
       <main className='flex w-full flex-1 flex-col items-center justify-center pl-10 pr-20'>
-        <header className='pt-40 pb-10'>
+        <header className='pt-36 pb-10'>
           <h1 className='text-6xl font-bold'>
             Round Robin {''}
             <a
