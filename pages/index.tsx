@@ -18,12 +18,36 @@ const Home: NextPage = () => {
   const initialRounds = generateRoundRobinPair(initialNames).map((r) =>
     r.filter((name) => name !== WAIT)
   );
-  console.log(initialRounds);
   const [roundTitle, setRoundTitle] = useState('Round');
   const [names, setNames] = useState(initialNames);
   const [rounds, setRounds] = useState(initialRounds);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
+  const downloadAsCSV = () => {
+    let csvTitle = 'data:text/csv;charset=utf-8,Title';
+    let csvContent = '';
+
+    for (let i = 0; i < rounds.length; i++) {
+      const displayTitle = `${
+        roundTitle.charAt(0).toUpperCase() + roundTitle.slice(1).toLowerCase()
+      } ${i + 1}`;
+      csvContent += displayTitle;
+      for (let j = 0; j < rounds[i].length; j += 2) {
+        if (i === 0) csvTitle += `,Pair ${j + 1} Name 1, Pair ${j + 1} Name 2`;
+        csvContent += `,${rounds[i][j]},${
+          rounds[i][j + 1] ? rounds[i][j + 1] : ''
+        }`;
+      }
+      csvContent += '\n';
+    }
+    const encodedUri = encodeURI(csvTitle + '\n' + csvContent);
+    const link = document.createElement('a');
+    link.setAttribute('href', encodedUri);
+    link.setAttribute('download', 'pairs.csv');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
   const generate = () => {
     const rounds = generateRoundRobinPair(names).map((r) =>
       r.filter((name) => name !== WAIT)
@@ -55,6 +79,7 @@ const Home: NextPage = () => {
           <h1 className='text-6xl font-bold'>
             Round Robin {''}
             <a
+              target='__blank'
               className='text-blue-400 rounded-lg focus:ring-4 focus:outline-none dark:focus:ring-blue-100 '
               href='https://en.wikipedia.org/wiki/Round-robin_tournament'
             >
@@ -77,15 +102,19 @@ const Home: NextPage = () => {
             ))}
           </div>
           <section className='gap-4 flex flex-col'>
-            <Input setValue={setRoundTitle} />
-            <Textarea setValues={setNames} />
+            <Input setValue={setRoundTitle} defaultValue={roundTitle} />
+            <Textarea setValues={setNames} defaultValue={names.join('\n')} />
             <div className='flex mt-2 gap-4 justify-between'>
               <Button
                 icon={Icon.LeftChervon}
                 text={'Generate'}
                 onClick={generate}
               />
-              <Button icon={Icon.Download} text={'Download as CSV'} />
+              <Button
+                icon={Icon.Download}
+                text={'Download as CSV'}
+                onClick={downloadAsCSV}
+              />
             </div>
           </section>
           <div className='mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full'>
