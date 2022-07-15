@@ -13,7 +13,7 @@ const IconToolTip = ({ children }: any) => {
     <div
       tabIndex={0}
       aria-label='tooltip'
-      className='focus:outline-none focus:ring-2 dark:text-gray-400 dark:focus:ring-blue-100 focus:ring-blue-300 rounded-full  text-blue-300 relative'
+      className='focus:outline-none focus:ring-2 dark:text-gray-400 dark:focus:ring-blue-100 focus:ring-blue-300 rounded-full text-blue-300 relative'
       onMouseOver={showTooltip}
       onFocus={showTooltip}
       onMouseOut={hideTooltip}
