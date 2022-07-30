@@ -1,13 +1,17 @@
-import { Tooltip } from 'flowbite-react';
 import React from 'react';
 import IconToolTip from './IconToolTip';
 
 type TextareaProps = {
   setValues: (val: string[]) => void;
-  defaultValue: string;
+  displayValue: string;
+  setDisplayValue: (val: string) => void;
 };
 
-const Textarea = ({ setValues, defaultValue }: TextareaProps) => {
+const Textarea = ({
+  setValues,
+  displayValue,
+  setDisplayValue,
+}: TextareaProps) => {
   return (
     <section>
       <div className='flex gap-2 items-center mb-2'>
@@ -22,8 +26,9 @@ const Textarea = ({ setValues, defaultValue }: TextareaProps) => {
       <textarea
         onChange={({ target }) => {
           setValues(target.value.split('\n').filter((r) => r.trim()));
+          setDisplayValue(target.value);
         }}
-        defaultValue={defaultValue}
+        value={displayValue}
         id='names'
         rows={10}
         maxLength={300}

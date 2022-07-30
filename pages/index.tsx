@@ -22,13 +22,16 @@ const Home: NextPage = () => {
     'Outliers',
     'Wolf Pack',
   ];
+  const initialTitle = 'Round';
   const initialRounds = generateRoundRobinPair(initialNames).map((r) =>
     r.filter((name) => name !== WAIT)
   );
-  const [roundTitle, setRoundTitle] = useState('Round');
+  const initialAreaValue = initialNames.join('\n');
+  const [roundTitle, setRoundTitle] = useState(initialTitle);
   const [names, setNames] = useState(initialNames);
   const [rounds, setRounds] = useState(initialRounds);
   const [showModal, setShowModal] = useState(MenuItem.None);
+  const [displayArea, setDisplayValue] = useState(initialAreaValue);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const downloadAsCSV = () => {
@@ -63,6 +66,14 @@ const Home: NextPage = () => {
     setRounds(rounds);
   };
 
+  const reset = () => {
+    setRoundTitle(initialTitle);
+    setNames(initialNames);
+    setRounds(initialRounds);
+    setDisplayValue(initialAreaValue);
+    setShowModal(MenuItem.None);
+  };
+
   useEffect(() => {
     if (isDarkMode) {
       document.getElementById('__next')?.classList.add('dark');
@@ -85,7 +96,7 @@ const Home: NextPage = () => {
       />
 
       <main>
-        <Modal item={showModal} setShow={setShowModal} />
+        <Modal item={showModal} setShow={setShowModal} reset={reset} />
         <div className='flex w-full flex-1 flex-col items-center justify-center pl-10 pr-20 pb-20'>
           <header className='pt-36 pb-16'>
             <h1 className='text-6xl font-bold'>
@@ -108,8 +119,12 @@ const Home: NextPage = () => {
               ))}
             </div>
             <section className='gap-4 flex flex-col'>
-              <Input setValue={setRoundTitle} defaultValue={roundTitle} />
-              <Textarea setValues={setNames} defaultValue={names.join('\n')} />
+              <Input setValue={setRoundTitle} title={roundTitle} />
+              <Textarea
+                setValues={setNames}
+                displayValue={displayArea}
+                setDisplayValue={setDisplayValue}
+              />
               <div className='flex mt-2 gap-4 justify-between'>
                 <Button
                   icon={Icon.LeftChervon}
