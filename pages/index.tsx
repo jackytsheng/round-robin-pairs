@@ -12,7 +12,6 @@ import generateRoundRobinPair, {
   WAIT,
 } from '../algorithms/generateRoundRobinPair';
 import Card from '../components/Card';
-import Modal from '../components/Modal';
 
 const Home: NextPage = () => {
   const initialNames = [
@@ -30,7 +29,6 @@ const Home: NextPage = () => {
   const [roundTitle, setRoundTitle] = useState(initialTitle);
   const [names, setNames] = useState(initialNames);
   const [rounds, setRounds] = useState(initialRounds);
-  const [showModal, setShowModal] = useState(MenuItem.None);
   const [displayArea, setDisplayValue] = useState(initialAreaValue);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -71,7 +69,6 @@ const Home: NextPage = () => {
     setNames(initialNames);
     setRounds(initialRounds);
     setDisplayValue(initialAreaValue);
-    setShowModal(MenuItem.None);
   };
 
   useEffect(() => {
@@ -89,14 +86,7 @@ const Home: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <Nav
-        onToggle={setIsDarkMode}
-        isChecked={isDarkMode}
-        showModal={setShowModal}
-      />
-
       <main>
-        <Modal item={showModal} setShow={setShowModal} reset={reset} />
         <div className='flex w-full flex-1 flex-col items-center justify-center pl-10 pr-20 pb-20'>
           <header className='pt-36 pb-16'>
             <h1 className='text-6xl font-bold'>
@@ -141,6 +131,7 @@ const Home: NextPage = () => {
           </div>
         </div>
 
+        <Nav onToggle={setIsDarkMode} isChecked={isDarkMode} reset={reset} />
         <section className='w-full border-y flex gap-5 items-baseline dark:border-gray-600 p-10'>
           <Card title='What is Round Robin Pair ?'>
             <h4 className='mb-2 font-medium text-slate-900 dark:text-slate-200'>
