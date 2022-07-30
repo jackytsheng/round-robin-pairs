@@ -53,7 +53,7 @@ const Modal = ({ item, setShow, modalContext }: ModalProps) => {
                   data-modal-toggle='popup-modal'
                   type='button'
                   onClick={modalContext?.secondaryBtn.ctaAction}
-                  className='text-white bg-red-500 hover:bg-red-300 focus:ring-4 focus:outline-none focus:ring-red-200 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center'
+                  className='text-red-400 bg-red-100 hover:bg-red-400 hover:text-white focus:ring-4 focus:outline-none focus:ring-red-200 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center'
                 >
                   {modalContext?.secondaryBtn.text}
                 </button>
