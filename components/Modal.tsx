@@ -30,7 +30,7 @@ const Modal = ({ item, setShow, modalContext }: ModalProps) => {
             <button
               type='button'
               onClick={() => setShow!(MenuItem.None)}
-              className='absolute top-3 right-2.5 text-gray-400 hover:text-blue-400 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:text-white'
+              className='absolute top-3 right-2.5 focus:ring-2 focus:outline-none focus:ring-blue-400 dark:focus:ring-blue-100 text-gray-400 hover:text-blue-400 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:text-blue-100'
               data-modal-toggle='popup-modal'
             >
               <Svg icon={Icon.Close} />
@@ -44,7 +44,7 @@ const Modal = ({ item, setShow, modalContext }: ModalProps) => {
                 data-modal-toggle='popup-modal'
                 type='button'
                 onClick={modalContext?.primaryBtn.ctaAction}
-                className='mr-2 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600'
+                className='mr-2 text-blue-400 bg-blue-100 hover:bg-blue-400 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center justify-between dark:focus:ring-blue-100 dark:bg-gray-700  dark:text-white dark:hover:bg-gray-400 dark:hover:text-gray-700'
               >
                 {modalContext?.primaryBtn.text}
               </button>
@@ -53,7 +53,7 @@ const Modal = ({ item, setShow, modalContext }: ModalProps) => {
                   data-modal-toggle='popup-modal'
                   type='button'
                   onClick={modalContext?.secondaryBtn.ctaAction}
-                  className='text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center'
+                  className='text-white bg-red-500 hover:bg-red-300 focus:ring-4 focus:outline-none focus:ring-red-200 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center'
                 >
                   {modalContext?.secondaryBtn.text}
                 </button>

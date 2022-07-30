@@ -134,30 +134,30 @@ const Home: NextPage = () => {
         <Nav onToggle={setIsDarkMode} isChecked={isDarkMode} reset={reset} />
         <section className='w-full border-y flex gap-5 items-baseline dark:border-gray-600 p-10'>
           <Card title='What is Round Robin Pair ?'>
-            <h4 className='mb-2 font-medium text-slate-900 dark:text-slate-200'>
+            <h4 className='mb-2 font-medium text-slate-600 dark:text-slate-200'>
               Introduction
             </h4>
-            <p className='text-sm mb-2 text-slate-900 dark:text-slate-200'>
+            <p className='text-sm mb-2 text-slate-600 dark:text-slate-200'>
               Round Robin Pair is a tool designed for generating unique pairs
               among a large group of participants where each participant meet
               every other participant exactly once. This is commonly seen in
               sport, match, tournament or feedback session.
             </p>
-            <h4 className='mb-2 font-medium text-slate-900 dark:text-slate-200'>
+            <h4 className='mb-2 font-medium text-slate-600 dark:text-slate-200'>
               Example use cases
             </h4>
-            <ul className='text-sm mb-2 text-slate-900 dark:text-slate-200'>
+            <ul className='text-sm mb-2 text-slate-600 dark:text-slate-200'>
               <li className='mb-2'>
                 In a tournament group stage, each team has to play every other
-                team within the same group exactly once
+                team within the same group exactly once.
               </li>
               <li className='mb-2'>
                 At work, during a feedback session each employee would is
-                required to give each other colleague one piece of feedback
+                required to give each other colleague one piece of feedback.
               </li>
               <li className='mb-2'>
                 In school, small group of student are asked to introduce
-                themselves to each other
+                themselves to each other.
               </li>
             </ul>
             <a
@@ -171,19 +171,19 @@ const Home: NextPage = () => {
             </a>
           </Card>
           <Card title='Metrics'>
-            <h4 className='my-2 font-medium text-slate-900 dark:text-slate-200'>
+            <h4 className='my-2 font-medium text-slate-600 dark:text-slate-200'>
               How many pairs generated ?
             </h4>
             <span className='text-blue-400 font-bold text-4xl'>
               120,509,623
             </span>
-            <h4 className='my-2 font-medium text-slate-900 dark:text-slate-200'>
+            <h4 className='my-2 font-medium text-slate-600 dark:text-slate-200'>
               How many pairs shared ?
             </h4>
             <span className='text-blue-400 font-bold text-4xl'>2,403,537</span>
           </Card>
           <Card title='Odd or Even Number?'>
-            <p className='mb-2 text-sm text-slate-900 dark:text-slate-200'>
+            <p className='mb-2 text-sm text-slate-600 dark:text-slate-200'>
               This tool can generate unique pairs for both even and odd number
               of participants. When there is an odd number, every participant
               will be a "bye" at some point, it means that the participant is
@@ -193,9 +193,9 @@ const Home: NextPage = () => {
         </section>
       </main>
       <footer className='flex h-24 w-full items-center justify-center '>
-        <span className='text-sm text-slate-900 dark:text-slate-200'>
+        {/* <span className='text-sm text-slate-600 dark:text-slate-200'>
           Created by Jackytsheng
-        </span>
+        </span> */}
       </footer>
     </div>
   );
