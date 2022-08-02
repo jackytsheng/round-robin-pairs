@@ -57,7 +57,7 @@ const Nav = ({ onToggle, isChecked, reset }: NavProps) => {
           <Svg icon={Icon.Add} />
           <span className='text-base'>New</span>
         </div>
-        <div
+        {/* <div
           className='cursor-pointer flex gap-1 items-center hover:text-blue-400 dark:hover:text-blue-300'
           onClick={() => setShowModal(MenuItem.Save)}
         >
@@ -77,11 +77,15 @@ const Nav = ({ onToggle, isChecked, reset }: NavProps) => {
         >
           <Svg icon={Icon.Login} />
           <span className='text-base'>Login</span>
-        </div>
+        </div> */}
         {/* <div className='flex gap-1 items-center'>
         <Svg icon={Icon.User} />
         <span className='text-base'>Jacky</span>
       </div> */}
+        <div className='cursor-pointer flex gap-1 items-center hover:text-blue-400 dark:hover:text-blue-300'>
+          <span className='text-base'>More Features On The Way ... </span>
+          <Svg icon={Icon.Truck} />
+        </div>
         <Toggle onToggle={onToggle} isChecked={isChecked} />
       </div>
     </nav>
