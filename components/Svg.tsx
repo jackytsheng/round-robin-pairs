@@ -255,6 +255,7 @@ const Svg = ({ icon }: SvgProps) => {
       break;
     case Icon.Close:
       iconToBeRendered = close;
+      break;
     case Icon.Truck:
       iconToBeRendered = truck;
       break;
