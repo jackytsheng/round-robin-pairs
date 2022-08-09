@@ -82,7 +82,7 @@ const Nav = ({ onToggle, isChecked, reset }: NavProps) => {
         <Svg icon={Icon.User} />
         <span className='text-base'>Jacky</span>
       </div> */}
-        <div className='cursor-pointer flex gap-1 items-center hover:text-blue-400 dark:hover:text-blue-300'>
+        <div className='md:flex hidden cursor-pointer gap-1 items-center hover:text-blue-400 dark:hover:text-blue-300'>
           <span className='text-base'>More Features On The Way ... </span>
           <Svg icon={Icon.Truck} />
         </div>

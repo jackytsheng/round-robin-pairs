@@ -88,8 +88,8 @@ const Home: NextPage = () => {
 
       <main>
         <div className='flex w-full flex-1 flex-col items-center justify-center pl-10 pr-20 pb-20'>
-          <header className='pt-36 pb-16'>
-            <h1 className='text-6xl font-bold'>
+          <header className='sm:pt-20 md:pt-28 lg:pt-36 lg:pb-16 pb-10'>
+            <h1 className='text-2xl md:text-4xl lg:text-6xl font-bold'>
               Round Robin {''}
               <span className='text-blue-400 rounded-lg'>Pairs</span>
             </h1>
