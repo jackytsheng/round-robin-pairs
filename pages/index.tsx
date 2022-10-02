@@ -113,8 +113,8 @@ const Home: NextPage = () => {
             </h1>
           </header>
 
-          <div className='grid grid-cols-[minmax(0px,_1fr)_280px] w-full auto-rows-auto'>
-            <div className='flex flex-wrap justify-center gap-5 mx-8 items-start'>
+          <div className='md:grid md:grid-cols-[minmax(0px,_1fr)_280px] flex flex-col-reverse md:w-full md:auto-rows-auto'>
+            <div className='flex flex-wrap justify-center gap-5 md:mx-8 items-start'>
               {rounds.map((eachRoundNames, index) => (
                 <Round
                   key={roundTitle + index}
@@ -126,14 +126,14 @@ const Home: NextPage = () => {
                 />
               ))}
             </div>
-            <section className='gap-4 flex flex-col'>
+            <section className='gap-4 flex flex-col mb-6'>
               <Input setValue={setRoundTitle} title={roundTitle} />
               <Textarea
                 setValues={setNames}
                 displayValue={displayArea}
                 setDisplayValue={setDisplayValue}
               />
-              <div className='flex mt-2 gap-4 justify-between'>
+              <div className='flex mt-2 gap-4 md:justify-between justify-center'>
                 <Button
                   icon={Icon.LeftChervon}
                   text={'Generate'}
@@ -150,7 +150,7 @@ const Home: NextPage = () => {
         </div>
 
         <Nav onToggle={setIsDarkMode} isChecked={isDarkMode} reset={reset} />
-        <section className='w-full border-y flex gap-5 items-baseline dark:border-gray-600 p-10'>
+        <section className='lg:w-full border-y flex items-stretch flex-col lg:flex-row gap-5 lg:items-baseline dark:border-gray-600 p-10'>
           <Card title='What is Round Robin Pair ?'>
             <h4 className='mb-2 font-medium text-slate-600 dark:text-slate-200'>
               Introduction
@@ -211,9 +211,9 @@ const Home: NextPage = () => {
         </section>
       </main>
       <footer className='flex h-24 w-full items-center justify-center '>
-        {/* <span className='text-sm text-slate-600 dark:text-slate-200'>
-          Created by Jackytsheng
-        </span> */}
+        <span className='text-sm text-slate-600 dark:text-slate-200'>
+          © 2022 Jackytsheng
+        </span>
       </footer>
     </div>
   );

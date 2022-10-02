@@ -14,11 +14,11 @@ const Round = ({ Chips, number, title }: RoundProps) => {
   return (
     <div
       className={
-        'border rounded-lg pb-8 px-4 flex flex-col align-item items-center dark:border-gray-600'
+        'w-full md:w-auto border rounded-lg pb-8 px-4 flex flex-col align-item items-center dark:border-gray-600'
       }
     >
       <h3 className='md:text-xl my-4 font-bold'>{displayTitle}</h3>
-      <div className='grid gap-2 grid-cols-2'>{Chips}</div>
+      <div className='w-full md:w-full grid gap-2 grid-cols-2'>{Chips}</div>
     </div>
   );
 };
