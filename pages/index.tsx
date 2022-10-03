@@ -105,8 +105,8 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <div className='flex w-full flex-1 flex-col items-center justify-center pl-10 pr-20 pb-20'>
-          <header className='sm:pt-20 md:pt-28 lg:pt-36 lg:pb-16 pb-10'>
+        <div className='flex w-full flex-1 flex-col items-center justify-center px-10 pb-10 md:pl-10 md:pr-20 md:pb-20'>
+          <header className='sm:pt-20 pt-20 md:pt-28 lg:pt-36 lg:pb-16 pb-10'>
             <h1 className='text-2xl md:text-4xl lg:text-6xl font-bold'>
               Round Robin {''}
               <span className='text-blue-400 rounded-lg'>Pairs</span>
